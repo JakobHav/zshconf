@@ -1,0 +1,34 @@
+add_newline = false
+
+format = """
+$os$username$directory$git_branch$git_status$cmd_duration$character
+"""
+
+[directory]
+style = "bg:blue fg:white"
+read_only = " "
+format = "[](fg:blue)[$path]($style)[](fg:blue bg:green) "
+truncation_length = 5
+truncation_symbol = "…/"
+
+[git_branch]
+symbol = " "
+style = "bg:green fg:black"
+format = "[ $branch]($style)[](fg:green bg:yellow) "
+
+[git_status]
+style = "bg:yellow fg:black"
+format = "[$all_status]($style)[](fg:yellow) "
+
+[cmd_duration]
+min_time = 2000
+format = "[took $duration](fg:bright-black) "
+
+[character]
+success_symbol = "[➜](bold green)"
+error_symbol = "[✗](bold red)"
+
+[username]
+style_user = "bg:blue fg:white"
+show_always = true
+format = "[ $user ]($style_user)[](fg:blue)"
