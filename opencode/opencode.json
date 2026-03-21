@@ -1,0 +1,66 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "permission": {
+    "external_directory": {
+      "~/tmp/*": "allow"
+    },
+    "skill": {
+      "*": "allow"
+    }
+  },
+  "provider": {
+    "ollama": {
+      "models": {
+        "gemini-3-flash-preview:cloud": {
+          "_launch": true,
+          "name": "gemini-3-flash-preview:cloud"
+        },
+        "kimi-k2.5:cloud": {
+          "_launch": true,
+          "limit": {
+            "context": 262144,
+            "output": 262144
+          },
+          "name": "kimi-k2.5:cloud"
+        },
+        "minimax-m2.5:cloud": {
+          "_launch": true,
+          "limit": {
+            "context": 204800,
+            "output": 128000
+          },
+          "name": "minimax-m2.5:cloud"
+        },
+        "minimax-m2.7:cloud": {
+          "_launch": true,
+          "limit": {
+            "context": 204800,
+            "output": 128000
+          },
+          "name": "minimax-m2.7:cloud"
+        },
+        "nemotron-3-nano:30b-cloud": {
+          "_launch": true,
+          "limit": {
+            "context": 1048576,
+            "output": 131072
+          },
+          "name": "nemotron-3-nano:30b-cloud"
+        },
+        "qwen3.5:cloud": {
+          "_launch": true,
+          "limit": {
+            "context": 262144,
+            "output": 32768
+          },
+          "name": "qwen3.5:cloud"
+        }
+      },
+      "name": "Ollama",
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "baseURL": "http://127.0.0.1:11434/v1"
+      }
+    }
+  }
+}

@@ -20,6 +20,15 @@ alias pdf='tdf -f true'
 alias reload="exec zsh"
 alias resume="fg"
 
+new_day() {
+    touch ~/Documents/python/daylog/$(date '+%d.%m.%Y').md
+    nvim ~/Documents/python/daylog/$(date '+%d.%m.%Y').md
+}
+
+log_day() {
+    py ~/Documents/python/daylog/daylog.py $(date '+%d.%m.%Y').md
+}
+
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -31,8 +40,20 @@ alias linux="docker start -ai my-linux"
 
 alias automate="echo \"Connecting to Automate, \nCMD+A D to exit, export TERM=xterm and screen -r to show\" && fsh pi@10.4.151.39"
 
+readme() {
+    nvim $(find ~/Documents/uni/tut_eidp/tutors/cli/2025WS-EidP \
+    -type f -path "*/exercise-$1/README.md")
+
+}
+# acados
+
+export DYLD_LIBRARY_PATH=/Users/jakobhaverkamp/Documents/uni/optimierung/acados/lib
+export ACADOS_SOURCE_DIR=/Users/jakobhaverkamp/Documents/uni/optimierung/acados
+export PYTHONPATH=/Users/jakobhaverkamp/Documents/uni/optimierung/acados/interfaces/acados_template:$PYTHONPATH
+
 # awrit
 export PATH="/Users/jakobhaverkamp/.local/bin:$PATH"
+
 alias preview="awrit http://127.0.0.1:8000"
 previewp() {
   awrit "http://127.0.0.1:$1"
@@ -44,6 +65,8 @@ md() {
 # ----------- zoxide -------------------
 #zoxide
 eval "$(zoxide init zsh --cmd cd)"
+
+export PATH="$HOME/.ghcup/bin:$PATH"
 
 
 # Initialize completion system FIRST
